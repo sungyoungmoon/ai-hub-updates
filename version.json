@@ -1,6 +1,5 @@
 {
-  "version": "build-6",
-  "installer_url": "https://github.com/sungyoungmoon/ai-hub/releases/download/build-6/AI-Hub-Setup.exe",
-  "sha256": "b5c40376142c86fe5611589e49612a2f57754fc1fbf5ca80afbe8f4c4701a879",
+  "version": "26.7.25",
+  "sha256": "aae7fdb5c6bbc5b15a06de60a0bf68420e623e2ef45dffb02f13b39942e45cb9",
   "notice": ""
 }
