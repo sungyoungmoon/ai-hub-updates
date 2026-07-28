@@ -1,0 +1,89 @@
+AI Hub network test  Mon 07/27/2026 17:57:35.01 
+user: hongjang.jin   pc: N6512347X1G12W 
+ 
+===== 1. bundled git present? ===== 
+git version 2.55.0.windows.3
+[exit 0] 
+ 
+===== 2. plain connect - expected to fail ===== 
+fatal: unable to access 'https://github.com/sungyoungmoon/ai-hub-updates.git/': schannel: next InitializeSecurityContext failed: CRYPT_E_NO_REVOCATION_CHECK (0x80092012) - The revocation function was unable to check revocation for the certificate.
+[exit 128] 
+ 
+===== 3. connect with revocation check off ===== 
+fatal: unable to access 'https://github.com/sungyoungmoon/ai-hub-updates.git/': schannel: next InitializeSecurityContext failed: CRYPT_E_NO_REVOCATION_CHECK (0x80092012) - The revocation function was unable to check revocation for the certificate.
+[exit 128] 
+ 
+===== 4. connect with certificate check fully off ===== 
+e5afbd77720771376a683ed33a2477f1ddc6f7ca	HEAD
+e5afbd77720771376a683ed33a2477f1ddc6f7ca	refs/heads/main
+[exit 0] 
+ 
+===== 5. connect using the OpenSSL certificate system ===== 
+fatal: unable to access 'https://github.com/sungyoungmoon/ai-hub-updates.git/': SSL certificate OpenSSL verify result: unable to get local issuer certificate (20)
+[exit 128] 
+ 
+===== 6. OpenSSL system, certificate check off ===== 
+e5afbd77720771376a683ed33a2477f1ddc6f7ca	HEAD
+e5afbd77720771376a683ed33a2477f1ddc6f7ca	refs/heads/main
+[exit 0] 
+ 
+===== 7. is a full Git installed on this PC? ===== 
+INFO: Could not find files for the given pattern(s).
+'git' is not recognized as an internal or external command,
+operable program or batch file.
+'git' is not recognized as an internal or external command,
+operable program or batch file.
+[exit 9009] 
+ 
+===== 8. proxy settings on this PC ===== 
+
+
+ERROR: The system was unable to find the specified registry key or value.
+
+
+ERROR: The system was unable to find the specified registry key or value.
+
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings
+    ProxyEnable    REG_DWORD    0x0
+
+
+Current WinHTTP proxy settings:
+
+    Direct access (no proxy server).
+
+ 
+===== 9. Windows own downloader - same path the app updater uses ===== 
+curl: (35) schannel: next InitializeSecurityContext failed: CRYPT_E_NO_REVOCATION_CHECK (0x80092012) - The revocation function was unable to check revocation for the certificate.
+[exit 35] 
+----- and with revocation check off ----- 
+HTTP/1.1 200 OK
+Date: Tue, 28 Jul 2026 00:57:43 GMT
+Cache-Control: public, max-age=60, s-maxage=60
+Vary: Accept,Accept-Encoding, Accept, X-Requested-With
+x-github-api-version-selected: 2022-11-28
+Access-Control-Expose-Headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset, Warning
+Access-Control-Allow-Origin: *
+Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+X-Frame-Options: deny
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 0
+Referrer-Policy: origin-when-cross-origin, strict-origin-when-cross-origin
+Content-Security-Policy: default-src 'none'
+Server: github.com
+X-GitHub-Media-Type: github.v3; format=json
+ETag: W/"4f825cc84e1c733059d46e76e6df9db557ae5254f9625dfe8e1b09499c449438"
+Accept-Ranges: bytes
+X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 58
+X-RateLimit-Used: 2
+X-RateLimit-Resource: core
+X-RateLimit-Reset: 1785200498
+X-GitHub-Request-Id: 88F9:38F1A2:957F311:984E187:6A67FE8E
+Content-Length: 2262
+Content-Type: application/json; charset=utf-8
+Via: 1.1 wsa1.us.skhynix.com:80 (Cisco-WSA/14.0.4-005)
+Connection: keep-alive
+
+[exit 0] 
+ 
+===== done ===== 
